@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INTEGRA_11 – Jurnal Kehadiran TEFA PPLG</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<link rel="stylesheet" href="css/style.css"></head><body>
+<div id="intro"><video id="vid" src="assets/video-intro.mp4" muted playsinline autoplay></video><div class="ov"><h1>INTEGRA_11</h1><i></i><p>TEACHING FACTORY PPLG SMK N 11 SEMARANG</p><small>Create By Bimo Hadi Wijaya</small></div><button id="skip">Lewati ›</button></div>
+<img id="lgS" src="assets/logo-smkn11.png" hidden alt=""><img id="lgT" src="assets/logo-tefa.png" hidden alt="">
+
+<div class="view" id="landing">
+ <section class="hero"><img src="assets/logo-tefa.png" alt="Logo TEFA PPLG"><h1>Welcome to <b>INTEGRA-11</b></h1>
+ <p>Selamat datang di INTEGRA_11 (Jurnal Kehadiran TEFA PPLG SMK N 11 Semarang).</p><div class="cue">Geser ke bawah<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:6px auto 0"><polyline points="6 9 12 15 18 9"/></svg></div></section>
+ <section class="cta"><div class="rv"><h2>Siap mencatat kehadiran?</h2><p style="margin:8px auto 24px">Daftar atau masuk untuk mengisi jurnal kehadiran TEFA.</p><button class="btn" id="enter">Masuk ke INTEGRA_11</button></div></section>
+</div>
+
+<div class="view auth" id="auth"><div class="card">
+ <div style="text-align:center"><img src="assets/logo-tefa.png" width="64" alt=""><h2 style="margin:6px 0 16px">INTEGRA_11</h2></div>
+ <div class="tabs"><button id="tR" class="on">Daftar</button><button id="tL">Login</button></div>
+ <div id="fR"><label>Nama</label><input id="rn" autocomplete="name" placeholder="Nama lengkap">
+ <label>Kelas</label><select id="rk"><option value="">Pilih kelas</option><option>X PPLG 1</option><option>X PPLG 2</option><option>X PPLG 3</option><option>XI GIM 1</option><option>XI GIM 2</option><option>XI GIM 3</option></select>
+ <label>Jabatan</label><select id="rj"><option value="">Pilih jabatan</option><option>PIC TEFA PPLG</option><option>Direktur TEFA PPLG</option><option>Wakil Direktur</option><option>Sekretaris</option></select>
+ <label>Password</label><div class="pw"><input id="rp" type="password" autocomplete="new-password"><button type="button" data-eye="rp" aria-label="Tampilkan password"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+ <p class="msg e" id="mR"></p><button class="btn" id="bR" style="width:100%">Daftar</button></div>
+ <div id="fL" hidden><label>Nama</label><input id="ln" autocomplete="username">
+ <label>Password</label><div class="pw"><input id="lp" type="password" autocomplete="current-password"><button type="button" data-eye="lp" aria-label="Tampilkan password"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+ <p class="msg e" id="mL"></p><button class="btn" id="bL" style="width:100%">Login</button></div>
+</div></div>
+
+<div id="welcome"><img src="assets/logo-tefa.png" alt=""><h1>Welcome to INTEGRA_11</h1><p id="wn"></p></div>
+
+<div class="view" id="app">
+ <div class="top"><img src="assets/logo-smkn11.png" alt=""><img src="assets/logo-tefa.png" alt=""><div class="who"><b id="un"></b><br><small id="ui"></small></div><button class="btn o" id="out" style="padding:8px 18px">Keluar</button></div>
+ <div class="wrap">
+  <div class="card"><h3>Jurnal Kehadiran TEFA PPLG</h3><div class="row2"><div><label>Tanggal</label><input type="date" id="dt"></div><div><label>Kegiatan (opsional)</label><input id="kg" placeholder="Contoh: Praktik pemrograman web"></div></div></div>
+  <div class="card"><h3 id="rt">Presensi</h3>
+   <label class="chk"><input type="checkbox" id="all"> Centang semua bila hadir</label>
+   <div class="tw"><table><thead><tr><th>No</th><th>Nama</th><th>Kelas</th><th>Kehadiran</th></tr></thead><tbody id="tb"></tbody></table></div><div class="sum" id="sm"></div></div>
+  <div class="card"><h3>Lampiran Bukti Foto Kegiatan</h3><p style="margin:0 0 10px;color:var(--mut);font-size:.9rem">Maksimal 3 foto, ukuran maksimal 3 GB per file. Bisa dari Android maupun laptop.</p>
+   <input type="file" id="fi" accept="image/*" multiple><div class="ph" id="ph"></div><p class="msg e" id="mP"></p></div>
+  <div class="card"><button class="btn y" id="sub" style="width:100%">Submit</button><p class="msg" id="mS"></p>
+   <div class="done" id="dn"><button class="btn" id="xp">Ekspor PDF</button><button class="btn o" id="xw">Ekspor Word</button></div></div>
+ </div>
+</div>
+
+<script src="js/logos.js"></script>
+<script src="js/app.js"></script></body></html>
